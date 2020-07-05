@@ -12,5 +12,7 @@ En este proyecto se trabajará con el [Book-Crossing Dataset](http://www2.inform
 3. **BX-Book-Ratings**: Contiene la información del *rating* del libro (`Book-Rating`) expresado en una escala de 1 a 10 (mayores valores denotan mejor evaluación). Algunos usuarios realizaron una evaluación implícita, representada por un 0.
 
 El objetivo es crear un *script* en Apache Pig, que permita obtener el **top 100** de autores basados en el promedio de los ratings de sus libros, generando tuplas del estilo:
+
 `position ## author ## <bestscoredbooks> ## bestscore ## average_score ## number_of_votes`
+
 Añadiendo la posibilidad de separar este análisis por ubicación geográfica de ser posible.
