@@ -6,13 +6,13 @@
 Análisis de los libros mejor valorados en la comunidad Book-Crossing (crawl hecho en 2004).
 
 ## Overview
-State what is the main goal of the project. State what sorts of question(s) you want to answer or what sort of system you want to build. (Questions may be non-technical -- e.g., is there a global correlation between coffee consumption and research output -- so long as they require data analysis or other technical solutions.)
+> State what is the main goal of the project. State what sorts of question(s) you want to answer or what sort of system you want to build. (Questions may be non-technical -- e.g., is there a global correlation between coffee consumption and research output -- so long as they require data analysis or other technical solutions.)
 
-El objetivo es crear un *script* en Apache Pig, que permita obtener el **top 100** de autores basados en el promedio de los ratings de sus libros, generando tuplas del estilo:
+El objetivo principal de este proyectoo es crear un *script* en Apache Pig, que permita obtener un ranking de autores basados en el promedio de los ratings de sus libros, generando tuplas del estilo:
 
 `position ## author ## <bestscoredbooks> ## bestscore ## average_score ## number_of_votes`
 
-Añadiendo la posibilidad de separar este análisis por ubicación geográfica de ser posible.
+La posición en el ranking se decide primero por su `average_score` y en caso de empate por el `number_of_votes`. Sólo son considerados autores con más de 5 votos en total.
 
 ## Data
 En este proyecto se trabajó con el [Book-Crossing Dataset](http://www2.informatik.uni-freiburg.de/~cziegler/BX/), de Institute für Informatik Freiburg. La razón de esta elección recae a que pareció interesante obtener algún top de libros o autores según su *rating* asignado. Cabe destacar que recién después de hacer el estudio, nos dimos cuenta que la data es muy antigua y por tanto desactualizada. (Pero la idea aplica a algun dataset más actual).
