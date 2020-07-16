@@ -52,8 +52,13 @@ Se utilizaron 3 principales herramientas para el flujo de procesamiento de datos
 ## Results
 > Detail the results of the project. Different projects will have different types of results; e.g., run-times or result sizes, evaluation of the methods you're comparing, the interface of the system you've built, and/or some of the results of the data analysis you conducted.
 
+Después de procesar los datos con los métodos ya descritos se obtuvieron los siguientes resultados: el archivo final tiene una lista de 2183 autores, seguidos de una lista de sus libros y ordenados de acuerdo a las calificaciones de sus mejores libros. Los autores que lideran esta lista son Michiro Ueyema, Pamela E. Apkarian-Russel y Wataru Yoshizumi.
+
 ## Conclusion
 > Summarise main lessons learnt. What was easy? What was difficult? What could have been done better or more efficiently?
+
+El problema con los datos empleados es que los votos se concentran en muy pocos libros, es decir, gran parte de los votos (buenos o malos) va a los mismos títulos y autores, mientras que hay otros títulos y autores que tienen muy pocas valoraciones. Lo anterior indica que los resultados están sesgados por la popularidad de ciertos autores/títulos.
+
 
 ## Appendix
 > You can use this for key code snippets that you don't want to clutter the main text.
