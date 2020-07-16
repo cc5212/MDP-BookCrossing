@@ -45,7 +45,7 @@ Se utilizaron 3 principales herramientas para el flujo de procesamiento de datos
     `author <bestscoredbooks>`
   6. A partir de **3** y **5** obtener lo propuesto sin ordenar.  
     `author ## <bestscoredbooks> ## bestscore ## average_score ## number_of_votes`
-  7. Dado **6** Solo bastaría ordenar.  
+  7. Dado **6** Se ordena según el promedio de los scores y luego por cantidad de votos y se rankea.  
     `position ## author ## <bestscoredbooks> ## bestscore ## average_score ## number_of_votes`
   
 
