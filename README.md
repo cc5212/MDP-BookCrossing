@@ -1,5 +1,5 @@
 # Book-Crossing | MDP (2020-1)
-> Grupo 20
+> Grupo 04
 > - Sebastián Aguilera
 > - Bryan Ortiz
 > - Cinthya Robles
