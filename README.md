@@ -35,7 +35,7 @@ Se utilizaron 3 principales herramientas para el flujo de procesamiento de datos
     `book_id number_of_votes average_score author title year publisher`
   3. Obtener por autor: score maximo, promedio y suma de cantidad de votos a partir de **2**.  
     a: `author max_score` b: `author avergage_score` c: `author total_votes`
-  4. Generar una tabla a aprtir de **3.a** y **BX-Books_Ratings** y concatenar los titulos con su año.  
+  4. Generar una tabla a partir de **3.a** y **BX-Books_Ratings** y concatenar los titulos con su año.  
     `book_id tittle_year publisher author max_score`
   5. Obtener una lista con los mejores libros de un autor a partir de **4**.  
     `author <bestscoredbooks>`
