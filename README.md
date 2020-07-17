@@ -9,7 +9,7 @@
 ## Overview
 El objetivo principal de este proyecto es crear un *script* en Apache Pig que permita obtener un ranking de autores, basados en el promedio de los ratings de sus libros, generando tuplas del estilo:
 
-`position ## author ## <bestscoredbooks> ## bestscore ## average_score ## number_of_votes`
+`position author <bestscoredbooks> bestscore average_score number_of_votes`
 
 La posición en el ranking se decide primero por su `average_score` y, en caso de empate, por el `number_of_votes`. Sólo son considerados autores con más de 5 votos en total.
 
@@ -27,8 +27,8 @@ El dataset está compuesto por 3 relaciones:
 ## Methods
 Se utilizaron 3 principales herramientas para el flujo de procesamiento de datos:
 - **Excel** para obtener una visualización rápida de con que contaba cada archivo.
-- **Python** con la librería *Pandas* para el preprocesamiento de datos, los archivos venian en formato csv separados por ";" y columnas que no serían utilizadas (Como las URLs de **BX-Books**). Se eliminaron esas columnas, se cambiaron los separadores por *tabs* y los strings quedaron sin comillas.
-- **PIG Latin** para el procesamiento de datos,  las principales operaciones fueron:
+- **Python** con la librería *Pandas* ([Script](https://github.com/cc5212/MDP-BookCrossing/blob/master/to_tsv.py)) para el preprocesamiento de datos, los archivos venian en formato csv separados por ";" y columnas que no serían utilizadas (Como las URLs de **BX-Books**). Se eliminaron esas columnas, se cambiaron los separadores por *tabs* y los strings quedaron sin comillas.
+- **PIG Latin** ([Script](https://github.com/cc5212/MDP-BookCrossing/blob/master/script.pig)) para el procesamiento de datos,  las principales operaciones fueron:
   1. Contar la cantidad de ratings y promedio de ratings de cada libro a a partir **BX-Books_Ratings**.  
     `book_id number_of_votes average_score`
   2. Generar una tabla a partir de **1** y **BX-Books**.  
@@ -40,13 +40,14 @@ Se utilizaron 3 principales herramientas para el flujo de procesamiento de datos
   5. Obtener una lista con los mejores libros de un autor a partir de **4**.  
     `author <bestscoredbooks>`
   6. A partir de **3** y **5** obtener lo propuesto sin ordenar.  
-    `author ## <bestscoredbooks> ## bestscore ## average_score ## number_of_votes`
+    `author <bestscoredbooks> bestscore average_score number_of_votes`
   7. Dado **6** Se ordena según el promedio de los scores y luego por cantidad de votos y se rankea.  
-    `position ## author ## <bestscoredbooks> ## bestscore ## average_score ## number_of_votes`
+    `position author <bestscoredbooks> bestscore average_score number_of_votes`
   
 
 ## Results
-Después de procesar los datos con los métodos ya descritos se obtuvieron los siguientes resultados: el archivo final tiene una lista de 2183 autores, seguidos de una lista de sus libros y ordenados de acuerdo a las calificaciones de sus mejores libros. Los autores que lideran esta lista son Michiro Ueyema, Pamela E. Apkarian-Russel y Wataru Yoshizumi.
+Después de procesar los datos con los métodos ya descritos se obtuvieron los siguientes resultados: el archivo final tiene una lista de 2183 autores, seguidos de una lista de sus libros y ordenados de acuerdo a las calificaciones de sus mejores libros. Los autores que lideran esta lista son Michiro Ueyema, Pamela E. Apkarian-Russel y Wataru Yoshizumi. ([Todos los resultados](
+https://github.com/cc5212/MDP-BookCrossing/blob/master/results.txt)) 
 
 ## Conclusion
 El problema con los datos empleados es que los votos se concentran en muy pocos libros, es decir, gran parte de los votos (buenos o malos) va a los mismos títulos y autores, mientras que hay otros títulos y autores que tienen muy pocas valoraciones. Lo anterior indica que los resultados están sesgados por la popularidad de ciertos autores/títulos.
